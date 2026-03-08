@@ -80,7 +80,11 @@ modelos p = [estado | estado <- estadosPosibles p, interpretacion p estado]
 
 --Ejercicio 5
 sonEquivalentes :: Prop -> Prop -> Bool
-sonEquivalentes p q = undefined
+sonEquivalentes p q = verificarInterp estados p q
+    where
+        estados = estadosPosibles p 
+        verificarInterp [] p q = True
+        verificarInterp (x:xs) p q = (interpretacion p x == interpretacion q x) && verificarInterp xs p q 
 
 --Ejercicio 6 
 tautologia :: Prop -> Bool
@@ -98,7 +102,11 @@ contradiccion p = verificarContradiccion p (estadosPosibles p)
 
 --Ejercicio 8
 consecuenciaLogica :: [Prop] -> Prop -> Bool
-consecuenciaLogica = undefined
+consecuenciaLogica [] p = tautologia p
+consecuenciaLogica xs p = tautologia (Impl (transformarPrem xs) p)
+    where
+        transformarPrem [x] = x
+        transformarPrem (x:xs) = And x (transformarPrem xs)
 
 
 --Funcion auxiliar

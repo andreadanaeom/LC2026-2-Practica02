@@ -1,0 +1,118 @@
+Test suite Practica02-test: RUNNING...
+
+Tests variables
+  Fórmula Tt [✔]
+  Fórumla Cr [✔]
+  Fórmula Cg [✔]
+Tests interpretacion
+  Fórmula Tt [✔]
+  Fórumla Cr [✔]
+  Fórmula Cg-True [✔]
+  Fórmula Cg-False [✔]
+Tests estadosPosibles
+  Fórmula Tt [✔]
+  Fórmula Cr [✔]
+  Fórmula Cg [✘]
+Tests modelos
+  Fórmula Tt [✔]
+  Fórmula Cr [✔]
+  Fórmula Cg [✘]
+Tests sonEquivalentes
+  Fórmulas Equivalentes [✘]
+  Fórmulas No Equivalentes [✘]
+Tests tautologia
+  Fórmula Tt [✔]
+  Fórmula Cr [✔]
+  Fórmula Cg [✔]
+Tests contradiccion
+  Fórmula Tt [✔]
+  Fórumla Cr [✔]
+  Fórmula Cg [✔]
+Tests consecuenciaLogica
+  Argumento válido [✘]
+  Argumento válido 2 [✘]
+  Argumento inválido [✘]
+  Gamma insatisfacible [✘]
+
+Failures:
+
+  test/Practica02Test.hs:51:36: 
+  1) Tests estadosPosibles Fórmula Cg
+       Actual list is not a permutation of expected list!
+         expected elements: [["q","s","p"], ["q","s"], ["q","p"], ["q"], ["s","p"], ["s"], ["p"], []]
+         actual elements:   [["p","q","s"], ["p","q"], ["p","s"], ["p"], ["q","s"], ["q"], ["s"], []]
+         missing elements:  [["q","s","p"], ["q","p"], ["s","p"]]
+         extra elements:    [["p","q","s"], ["p","q"], ["p","s"]]
+
+  To rerun use: --match "/Tests estadosPosibles/Fórmula Cg/" --seed 2027904251
+
+  test/Practica02Test.hs:61:28: 
+  2) Tests modelos Fórmula Cg
+       Actual list is not a permutation of expected list!
+         expected elements: [["q","s","p"], ["q","p"], ["q"], ["s","p"], ["s"], ["p"], []]
+         actual elements:   [["p","q","s"], ["p","q"], ["p","s"], ["p"], ["q"], ["s"], []]
+         missing elements:  [["q","s","p"], ["q","p"], ["s","p"]]
+         extra elements:    [["p","q","s"], ["p","q"], ["p","s"]]
+
+  To rerun use: --match "/Tests modelos/Fórmula Cg/" --seed 2027904251
+
+  src/Practica02.hs:83:23: 
+  3) Tests sonEquivalentes Fórmulas Equivalentes
+       uncaught exception: ErrorCall
+       Prelude.undefined
+       CallStack (from HasCallStack):
+         undefined, called at src/Practica02.hs:83:23 in Practica02-0.1.0.0-inplace:Practica02
+
+  To rerun use: --match "/Tests sonEquivalentes/Fórmulas Equivalentes/" --seed 2027904251
+
+  src/Practica02.hs:83:23: 
+  4) Tests sonEquivalentes Fórmulas No Equivalentes
+       uncaught exception: ErrorCall
+       Prelude.undefined
+       CallStack (from HasCallStack):
+         undefined, called at src/Practica02.hs:83:23 in Practica02-0.1.0.0-inplace:Practica02
+
+  To rerun use: --match "/Tests sonEquivalentes/Fórmulas No Equivalentes/" --seed 2027904251
+
+  src/Practica02.hs:101:22: 
+  5) Tests consecuenciaLogica Argumento válido
+       uncaught exception: ErrorCall
+       Prelude.undefined
+       CallStack (from HasCallStack):
+         undefined, called at src/Practica02.hs:101:22 in Practica02-0.1.0.0-inplace:Practica02
+
+  To rerun use: --match "/Tests consecuenciaLogica/Argumento válido/" --seed 2027904251
+
+  src/Practica02.hs:101:22: 
+  6) Tests consecuenciaLogica Argumento válido 2
+       uncaught exception: ErrorCall
+       Prelude.undefined
+       CallStack (from HasCallStack):
+         undefined, called at src/Practica02.hs:101:22 in Practica02-0.1.0.0-inplace:Practica02
+
+  To rerun use: --match "/Tests consecuenciaLogica/Argumento válido 2/" --seed 2027904251
+
+  src/Practica02.hs:101:22: 
+  7) Tests consecuenciaLogica Argumento inválido
+       uncaught exception: ErrorCall
+       Prelude.undefined
+       CallStack (from HasCallStack):
+         undefined, called at src/Practica02.hs:101:22 in Practica02-0.1.0.0-inplace:Practica02
+
+  To rerun use: --match "/Tests consecuenciaLogica/Argumento inválido/" --seed 2027904251
+
+  src/Practica02.hs:101:22: 
+  8) Tests consecuenciaLogica Gamma insatisfacible
+       uncaught exception: ErrorCall
+       Prelude.undefined
+       CallStack (from HasCallStack):
+         undefined, called at src/Practica02.hs:101:22 in Practica02-0.1.0.0-inplace:Practica02
+
+  To rerun use: --match "/Tests consecuenciaLogica/Gamma insatisfacible/" --seed 2027904251
+
+Randomized with seed 2027904251
+
+Finished in 0.0050 seconds
+25 examples, 8 failures
+Test suite Practica02-test: FAIL
+Test suite logged to: /home/andreadanaeomz/Documentos/cuarto_semestre/logica/LC2026-2-Practica02/dist-newstyle/build/x86_64-linux/ghc-9.4.8/Practica02-0.1.0.0/t/Practica02-test/test/Practica02-0.1.0.0-Practica02-test.log

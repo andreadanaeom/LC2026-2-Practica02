@@ -31,31 +31,70 @@ type Estado = [String]
 
 --Ejercicio 1
 variables :: Prop -> [String]
-variables = undefined
+variables p = eliminarRepetidos (var p)
+    where
+        var (Var p) = [p]
+        var (Cons _) = []
+        var (Not p) = var p
+        var (And p q) = var p ++ var q
+        var (Or p q) = var p ++ var q
+        var (Impl p q) = var p ++ var q
+        var (Syss p q) = var p ++ var q
+
+--Funcion auxiliar para la funcion variables, nos ayuda a construir una lista sin elementos repetidos.
+eliminarRepetidos :: [String] -> [String]
+eliminarRepetidos [] = []
+eliminarRepetidos (x:xs) = x : eliminarRepetidos (filtrarRepetidos x xs)
+
+--Funcion auxiliar que eliminar los repetidos a partir de comparar con un elemento
+filtrarRepetidos :: String -> [String] -> [String]
+filtrarRepetidos x [] = []
+filtrarRepetidos x (y:ys) 
+    | x == y = filtrarRepetidos x ys
+    | otherwise = y : filtrarRepetidos x ys
 
 --Ejercicio 2
 interpretacion :: Prop -> Estado -> Bool
-interpretacion = undefined
+interpretacion (Var p) xs = pertenece p xs
+interpretacion (Cons p) _ = p
+interpretacion (Not p) xs = not (interpretacion p xs)
+interpretacion (And p q) xs = interpretacion p xs && interpretacion q xs
+interpretacion (Or p q) xs = interpretacion p xs || interpretacion q xs
+interpretacion (Impl p q) xs = not (interpretacion p xs) || interpretacion q xs
+interpretacion (Syss p q) xs = interpretacion p xs == interpretacion q xs
+
+--Funcion auxiliar de la funcion interpretacion que nos dice si una variable pertenece a estado
+pertenece :: String -> [String] -> Bool
+pertenece _ [] = False
+pertenece x (y:ys) 
+    | x==y = True
+    | otherwise = pertenece x ys
 
 --Ejercicio 3
 estadosPosibles :: Prop -> [Estado]
-estadosPosibles = undefined
+estadosPosibles p = conjPotencia (variables p)
 
 --Ejercicio 4
 modelos :: Prop -> [Estado]
-modelos = undefined
+modelos p = [estado | estado <- estadosPosibles p, interpretacion p estado]
 
 --Ejercicio 5
 sonEquivalentes :: Prop -> Prop -> Bool
-sonEquivalentes = undefined
+sonEquivalentes p q = undefined
 
 --Ejercicio 6 
 tautologia :: Prop -> Bool
-tautologia = undefined
+tautologia p = verificarTautologia p (estadosPosibles p) 
+    where
+        verificarTautologia _ [] = True
+        verificarTautologia p (x:xs) = interpretacion p x && verificarTautologia p xs
 
 --Ejercicio 7
 contradiccion :: Prop -> Bool
-contradiccion = undefined
+contradiccion p = verificarContradiccion p (estadosPosibles p)
+    where
+        verificarContradiccion _ [] = True
+        verificarContradiccion p (x:xs) = not (interpretacion p x) && verificarContradiccion p xs
 
 --Ejercicio 8
 consecuenciaLogica :: [Prop] -> Prop -> Bool

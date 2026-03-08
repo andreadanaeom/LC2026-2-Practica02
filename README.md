@@ -1,4 +1,4 @@
-# Lógica Computacional 2026-2
+3# Lógica Computacional 2026-2
 
 ## Práctica 2
 
@@ -20,15 +20,12 @@ Si no les llegan a funcionar, es posible que el problema es que tengan una versi
 
 ## Integrantes
 
-En esta sección deben eliminar esta línea de texto, borrar la leyenda "Integrante n" y escribir su nombre empezando por apellidos y su número de cuenta.
++ Olviares Martínez Andrea Danae
+    - No. de Cuenta: 322247279
++ Ramírez Palacios Miguel
+    - No. de Cuenta: 322216376
 
-+ Integrante 1
-    - No. de Cuenta: 
-+ Integrante 2
-    - No. de Cuenta: 
-+ Integrante 3
-    - No. de Cuenta: 
 
 ## Comentarios
 
-Recuerden que opcionalmente pueden agregar un comentario (ver los lineamientos de entrega). Si es el caso, borren esta línea y dejen su comentario.
+Test EstadosPosibles formula Cg y Test Modelos formula Cg no pasan la prueba porque nuestro conjunto potencia a pesar de tener los mismos elementos no los da en el mismo orden que los pide el test, le preguntamos a Eduardo si había algun problema y nos dijo que podíamos dejarlo asi, por que el test encuentra permutaciones de las listas pero no de los elementos en estas debido a un error de la practica pasada.
